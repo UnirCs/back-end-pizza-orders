@@ -14,7 +14,7 @@
 	<name>pizza-orders-ms</name>
 	<description>Unir Pizza Orders MS</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<spring-cloud.version>2022.0.1</spring-cloud.version>
 	</properties>
 	<dependencies>
