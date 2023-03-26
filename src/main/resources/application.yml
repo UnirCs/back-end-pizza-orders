@@ -30,4 +30,4 @@ unir:
   app:
     pizza:
       catalogue:
-        url: http://ms-pizza-catalogue/pizzas/%s
+        url: https://ms-pizza-catalogue/pizzas/%s
