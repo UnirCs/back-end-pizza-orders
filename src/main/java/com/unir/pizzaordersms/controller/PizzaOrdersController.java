@@ -68,7 +68,7 @@ public class PizzaOrdersController {
 
 	}
 
-	@PatchMapping("/orders/{idOrder}/status")
+	@PatchMapping("/orders/{idOrder}")
 	/**
 	 * Devuelve 200, 404, 500
 	 * @param idOrder
