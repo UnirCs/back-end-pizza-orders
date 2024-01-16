@@ -10,7 +10,7 @@ eureka:
 
 ## Instance port
 server:
-  port: ${PORT:8084}
+  port: ${PORT:8083}
 spring:
   application:
     name: ms-pizza-orders
