@@ -1,12 +1,11 @@
 package com.unir.pizzaordersms.facade;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-
-import com.unir.pizzaordersms.model.api.Pizza;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,15 +17,19 @@ public class PizzaCatalogueFacade {
 
 	private final RestTemplate restTemplate;
 
-	@Value("${unir.app.pizza.catalogue.url}")
-	private String getPizzaUrl;
+	@Value("${unir.app.pizza.catalogue.head-ingredient-url}")
+	private String getIngredientUrl;
 
-	public ResponseEntity<Pizza> getPizza(String idPizza) {
+	public ResponseEntity<?> headIngredient(String idIngredient) {
 		try {
-			return restTemplate.getForEntity(String.format(getPizzaUrl, idPizza), Pizza.class);
+			return restTemplate.exchange(
+					String.format(getIngredientUrl, idIngredient),
+					HttpMethod.HEAD,
+					null,
+					ResponseEntity.class);
 		} catch (HttpClientErrorException e) {
-			log.error("Client Error: {}, Pizza with ID {}", e.getStatusCode(), idPizza);
-			return ResponseEntity.badRequest().build();
+			log.error("Client Error: {}, Pizza with ID {}", e.getStatusCode(), idIngredient);
+			return null;
 		}
 	}
 

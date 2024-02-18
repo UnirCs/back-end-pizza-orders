@@ -27,4 +27,13 @@ unir:
   app:
     pizza:
       catalogue:
-        url: https://ms-pizza-catalogue/pizzas/%s
+        head-ingredient-url: https://ms-pizza-catalogue/ingredients/%s
+
+## Stripe Configuration
+stripe:
+  apiKey: ${STRIPE_API_KEY}
+  webhookSecret: ${STRIPE_WEBHOOK_SECRET}
+  checkout:
+    successUrl: ${STRIPE_CHECKOUT_SUCCESS_URL}
+    cancelUrl: ${STRIPE_CHECKOUT_CANCEL_URL}
+    returnUrl: ${STRIPE_CHECKOUT_RETURN_URL}

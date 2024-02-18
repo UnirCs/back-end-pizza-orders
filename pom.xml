@@ -54,7 +54,12 @@
 		<dependency>
 			<groupId>com.stripe</groupId>
 			<artifactId>stripe-java</artifactId>
-			<version>23.0.0</version>
+			<version>24.14.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.java-json-tools</groupId>
+			<artifactId>json-patch</artifactId>
+			<version>1.13</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

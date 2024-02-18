@@ -1,17 +1,14 @@
 package com.unir.pizzaordersms.model.sql;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -24,17 +21,17 @@ import lombok.ToString;
 public class PizzaOrder {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "concept")
-	private String concept;
+	@Column(name = "sessionId")
+	private String sessionId;
 	
 	@Column(name = "price")
 	private Double price;
-	
-	@Column(name = "address")
-	private String address;
+
+	@ElementCollection
+	private List<String> ingredients;
 	
 	//True si el pedido ha sido entregado, false e.o.c
 	@Column(name = "delivered")
@@ -42,5 +39,5 @@ public class PizzaOrder {
 	
 	//True si las pizzas del pedido ya se han hecho, false e.o.c
 	@Column(name = "processed")
-	private Boolean processed;
+	private String paymentStatus;
 }
