@@ -1,0 +1,39 @@
+## Configuration for Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+
+  instance:
+    preferIpAddress: true
+    hostname: ${HOSTNAME:localhost}
+
+## Instance port
+server:
+  port: ${PORT:8083}
+spring:
+  application:
+    name: ms-pizza-orders
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: ${DB_PASSWORD}
+
+
+unir:
+  app:
+    pizza:
+      catalogue:
+        head-ingredient-url: https://ms-pizza-catalogue/ingredients/%s
+
+## Stripe Configuration
+stripe:
+  apiKey: ${STRIPE_API_KEY:sk_test_1234567890}
+  webhookSecret: ${STRIPE_WEBHOOK_SECRET:ws_1234567890}
+  checkout:
+    successUrl: ${STRIPE_CHECKOUT_SUCCESS_URL:https://ms-pizza-orders/checkout/success}
+    cancelUrl: ${STRIPE_CHECKOUT_CANCEL_URL:https://ms-pizza-orders/checkout/cancel}
+    returnUrl: ${STRIPE_CHECKOUT_RETURN_URL:https://ms-pizza-orders/checkout/return}
