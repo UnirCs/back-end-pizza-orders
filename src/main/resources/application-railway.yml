@@ -7,3 +7,8 @@ eureka:
     secure-port-enabled: false
     non-secure-port: ${server.port}
     secure-port: 443
+unir:
+  app:
+    pizza:
+      catalogue:
+        head-ingredient-url: http://ms-pizza-catalogue/ingredients/%s
